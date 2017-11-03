@@ -28,7 +28,8 @@ rw.smooth <- function(s.yr = c(2002, 2004, 2008, 2010, 2012, 2016),
 
 n <- s.yr[length(s.yr)] - s.yr[1] + 1 		# number of years, e.g. 15
 s.index <- s.yr - s.yr[1] + 1			# survey year index, e.g. 1, 3, 7, 9, 11, 15	
-
+yr <- seq(s.yr[1], length.out = n)		# all years, e.g. 2002, 2003, ..., 2016 (for output; useful for display)
+	
 # Negative log likelihood function wrt predicted survey abundance/biomass b.hat
 negll <- function(b.hat, sigma, b, cv.b, n, s.index){
 	var.log.b <- log(1 + cv.b^2)
